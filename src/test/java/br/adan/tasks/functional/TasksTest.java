@@ -98,6 +98,8 @@ public class TasksTest {
   }
 
   public WebDriver acessarAplicacao() {
+    System.setProperty("webdriver.chrome.driver",
+        "C:\\Users\\Adan\\Documents\\desenvolvimento\\libs\\driver\\browser\\chrome\\chromedriver.exe");
     final WebDriver driver = new ChromeDriver();
     driver.navigate().to("http://localhost:8001/tasks");
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
