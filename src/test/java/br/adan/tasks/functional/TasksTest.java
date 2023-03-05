@@ -100,6 +100,24 @@ public class TasksTest {
     assertEquals("Fill the task description", mensagem);
   }
 
+  @Test
+  public void deveRemoverTarefaComSucesso() throws Exception {
+    // Inserir tarefa
+    driver.findElement(By.id("addTodo")).click();
+    driver.findElement(By.id("task")).sendKeys("Teste via Selenium");
+    driver.findElement(By.id("dueDate")).sendKeys("10/10/2030");
+    driver.findElement(By.id("saveButton")).click();
+    String mensagem = driver.findElement(By.id("message")).getText();
+
+    assertEquals("Success!", mensagem);
+
+    // Remoção tarefa
+    driver.findElement(By.xpath("//a[@class='btn btn-outline-danger btn-sm']")).click();
+    mensagem = driver.findElement(By.id("message")).getText();
+
+    assertEquals("Success!", mensagem);
+  }
+
   public WebDriver acessarAplicacao() throws MalformedURLException {
     // System.setProperty("webdriver.chrome.driver",
     // "C:\\Users\\Adan\\Documents\\desenvolvimento\\libs\\driver\\browser\\chrome\\chromedriver.exe");
